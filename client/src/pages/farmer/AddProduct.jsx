@@ -46,78 +46,85 @@ const handleSubmit = async (e) => {
   }
 };
 
-  return (
-    <div className="flex bg-gray-100 min-h-screen">
-  <Sidebar />
+return (
+  <div className="flex min-h-screen bg-gray-100">
+    
+    {/* Sidebar */}
+    <div className="hidden md:block">
+      <Sidebar />
+    </div>
 
-  <div className="ml-64 w-full p-8">
-    <div className="max-w-xl mx-auto bg-white shadow-lg rounded-2xl p-6">
+    {/* Main Content */}
+    <div className="flex-1 w-full p-4 sm:p-6 md:ml-64">
       
-      <h2 className="text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2">
-        🛒 Add Product
-      </h2>
+      <div className="max-w-xl mx-auto bg-white shadow-lg rounded-2xl p-4 sm:p-6">
+        
+        <h2 className="text-xl sm:text-2xl font-bold mb-6 text-gray-800 flex items-center gap-2">
+          🛒 Add Product
+        </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
 
-        <input
-          placeholder="Product Name"
-          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-        />
-
-        <input
-          placeholder="Price"
-          type="number"
-          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
-          onChange={(e) => setForm({ ...form, price: e.target.value })}
-        />
-
-        <input
-          placeholder="Category"
-          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
-          onChange={(e) => setForm({ ...form, category: e.target.value })}
-        />
-
-        <input
-          placeholder="Image URL"
-          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
-          onChange={(e) => setForm({ ...form, image: e.target.value })}
-        />
-
-        {/* 🔥 Image Preview */}
-        {form.image && (
-          <img
-            src={form.image}
-            alt="preview"
-            className="w-full h-40 object-cover rounded-lg border"
+          <input
+            placeholder="Product Name"
+            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
-        )}
 
-        <textarea
-          placeholder="Description"
-          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
-          onChange={(e) =>
-            setForm({ ...form, description: e.target.value })
-          }
-        />
+          <input
+            placeholder="Price"
+            type="number"
+            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
+            onChange={(e) => setForm({ ...form, price: e.target.value })}
+          />
 
-        <input
-          placeholder="Stock"
-          type="number"
-          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
-          onChange={(e) => setForm({ ...form, stock: e.target.value })}
-        />
+          <input
+            placeholder="Category"
+            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
+            onChange={(e) => setForm({ ...form, category: e.target.value })}
+          />
 
-        <button
-          type="submit"
-          className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-300 shadow-md"
-        >
-          🚀 Add Product
-        </button>
+          <input
+            placeholder="Image URL"
+            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
+            onChange={(e) => setForm({ ...form, image: e.target.value })}
+          />
 
-      </form>
+          {/* Image Preview */}
+          {form.image && (
+            <img
+              src={form.image}
+              alt="preview"
+              className="w-full h-32 sm:h-40 object-cover rounded-lg border"
+            />
+          )}
+
+          <textarea
+            placeholder="Description"
+            rows="3"
+            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
+            onChange={(e) =>
+              setForm({ ...form, description: e.target.value })
+            }
+          />
+
+          <input
+            placeholder="Stock"
+            type="number"
+            className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none"
+            onChange={(e) => setForm({ ...form, stock: e.target.value })}
+          />
+
+          <button
+            type="submit"
+            className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-300 shadow-md"
+          >
+            🚀 Add Product
+          </button>
+
+        </form>
+      </div>
     </div>
   </div>
-</div>
-  );
+);
 }
